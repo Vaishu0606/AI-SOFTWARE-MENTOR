@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* Dark is the only theme: this is an instrumentation console, and a light
+   variant would dilute the severity colours that carry meaning here (red is a
+   failure, green is a verified claim, amber is "we are declining to conclude"). */
+:root {
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Long backend strings (paths, digests, fingerprints) must be able to wrap
+   rather than force the layout to scroll sideways. */
+code,
+pre,
+.font-mono {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-variant-ligatures: none;
+}
+
+::selection {
+  background: #1d4ed8;
+  color: #f8fafc;
+}
